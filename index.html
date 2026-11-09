@@ -1,1662 +1,548 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AR Odontologia | Pelotas - RS</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AR Odontologia | Dentistas no centro de Pelotas</title>
+<meta name="description" content="Clínica odontológica no centro de Pelotas. Implante, clareamento, aparelho ortodôntico, lentes de contato dentais, tratamento de canal e prótese. Agenda imediata e horários flexíveis.">
+<meta name="theme-color" content="#083045">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AR Odontologia | Pelotas">
+<meta property="og:description" content="Uma clínica pelotense especializada em sorrisos. Agenda imediata e horários flexíveis.">
+<meta property="og:image" content="img/equipe.webp">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "AR Odontologia",
+  "image": "img/equipe.webp",
+  "telephone": "+55 53 3307-6857",
+  "email": "consultorioarodontologia@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rua General Neto, 1035, Sala 302",
+    "addressLocality": "Pelotas",
+    "addressRegion": "RS",
+    "postalCode": "96015-280",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:30", "closes": "19:30"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00"}
+  ],
+  "sameAs": ["https://www.instagram.com/ar.odontologia_/", "https://www.facebook.com/arodontologiapel"]
+}
+</script>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --navy: #083045;
-    --navy-mid: #0f4a6e;
-    --navy-light: #1a6a9a;
-    --cream: #faf8f5;
-    --cream-dark: #f0ece4;
-    --gold: #b8966e;
-    --gold-light: #d4b896;
-    --white: #ffffff;
-    --text-dark: #1a1a1a;
-    --text-mid: #4a4a4a;
-    --text-light: #8a8a8a;
-    --font-display: 'Cormorant Garamond', serif;
-    --font-body: 'Jost', sans-serif;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font-body);
-    background: var(--cream);
-    color: var(--text-dark);
-    overflow-x: hidden;
-  }
-
-  /* HEADER */
-  header {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 1.2rem 2.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    transition: all 0.5s ease;
-    background: transparent;
-  }
-
-  header.scrolled {
-    background: rgba(250,248,245,0.96);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 1px 0 rgba(8,48,69,0.08);
-    padding: 0.9rem 2.5rem;
-  }
-
-  .logo-wrap {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-
-  .logo-symbol {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 300;
-    color: var(--navy);
-    letter-spacing: -0.02em;
-    line-height: 1;
-  }
-
-  .logo-text {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 400;
-    color: var(--navy);
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-  }
-
-  nav {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
-  }
-
-  nav a {
-    text-decoration: none;
-    font-size: 0.75rem;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--navy);
-    opacity: 0.7;
-    transition: opacity 0.3s;
-  }
-
-  nav a:hover { opacity: 1; }
-
-  .nav-cta {
-    background: var(--navy) !important;
-    color: var(--white) !important;
-    opacity: 1 !important;
-    padding: 0.6rem 1.4rem !important;
-    border-radius: 2px;
-    letter-spacing: 0.15em !important;
-    transition: background 0.3s !important;
-  }
-
-  .nav-cta:hover { background: var(--navy-mid) !important; }
-
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 5px;
-    background: none;
-    border: none;
-  }
-
-  .hamburger span {
-    display: block;
-    width: 24px;
-    height: 1.5px;
-    background: var(--navy);
-    transition: all 0.3s;
-  }
-
-  /* HERO */
-  .hero {
-    min-height: 100vh;
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    overflow: hidden;
-  }
-
-  .hero-left {
-    background: var(--navy);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 9rem 4rem 5rem 5rem;
-    position: relative;
-    z-index: 2;
-  }
-
-  .hero-left::after {
-    content: '';
-    position: absolute;
-    right: -80px;
-    top: 0; bottom: 0;
-    width: 160px;
-    background: var(--navy);
-    clip-path: polygon(0 0, 0% 100%, 100% 100%);
-    z-index: 3;
-  }
-
-  .hero-tag {
-    font-size: 0.65rem;
-    font-weight: 500;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.2s forwards;
-  }
-
-  .hero-title {
-    font-family: var(--font-display);
-    font-size: clamp(2.8rem, 5vw, 4.2rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--white);
-    margin-bottom: 1.2rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.4s forwards;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--gold-light);
-  }
-
-  .hero-sub {
-    font-size: 0.9rem;
-    font-weight: 300;
-    line-height: 1.8;
-    color: rgba(255,255,255,0.65);
-    margin-bottom: 2.5rem;
-    max-width: 380px;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.6s forwards;
-  }
-
-  .hero-cta-group {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.8s 0.8s forwards;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6rem;
-    background: var(--gold);
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.72rem;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    border-radius: 2px;
-    transition: all 0.3s;
-    white-space: nowrap;
-  }
-
-  .btn-primary:hover {
-    background: var(--gold-light);
-    transform: translateY(-2px);
-  }
-
-  .btn-primary svg { width: 16px; height: 16px; flex-shrink: 0; }
-
-  .btn-ghost {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: rgba(255,255,255,0.6);
-    text-decoration: none;
-    font-size: 0.72rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    transition: color 0.3s;
-  }
-
-  .btn-ghost:hover { color: rgba(255,255,255,0.95); }
-
-  .hero-info-strip {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 5rem;
-    display: flex;
-    gap: 2rem;
-    opacity: 0;
-    animation: fadeUp 0.8s 1s forwards;
-  }
-
-  .hero-info-item {
-    border-left: 1px solid rgba(255,255,255,0.15);
-    padding-left: 1rem;
-  }
-
-  .hero-info-item strong {
-    display: block;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--gold-light);
-    font-family: var(--font-display);
-  }
-
-  .hero-info-item span {
-    font-size: 0.65rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-  }
-
-  .hero-right {
-    position: relative;
-    background: var(--cream-dark);
-    overflow: hidden;
-  }
-
-  .hero-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    opacity: 0;
-    animation: fadeIn 1.2s 0.3s forwards;
-    display: block;
-  }
-
-  .hero-right-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(120deg, var(--navy) 0%, transparent 30%);
-    z-index: 1;
-  }
-
-  /* BADGES STRIP */
-  .badges-strip {
-    background: var(--navy);
-    padding: 1.4rem 4rem;
-    display: flex;
-    gap: 3rem;
-    align-items: center;
-    overflow-x: auto;
-    scrollbar-width: none;
-    justify-content: center;
-  }
-
-  .badges-strip::-webkit-scrollbar { display: none; }
-
-  .badge-item {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    flex-shrink: 0;
-    color: rgba(255,255,255,0.75);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-  }
-
-  .badge-icon {
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(184,150,110,0.4);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: var(--gold-light);
-  }
-
-  .badge-icon svg { width: 16px; height: 16px; }
-
-  .badge-sep { width: 1px; height: 24px; background: rgba(255,255,255,0.12); flex-shrink: 0; }
-
-  /* SERVICES */
-  .services {
-    padding: 6rem 5rem;
-    background: var(--cream);
-  }
-
-  .section-label {
-    font-size: 0.62rem;
-    font-weight: 500;
-    letter-spacing: 0.45em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.8rem;
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-  }
-
-  .section-label::before {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 1px;
-    background: var(--gold);
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 300;
-    color: var(--navy);
-    margin-bottom: 0.5rem;
-    line-height: 1.2;
-  }
-
-  .section-title em { font-style: italic; color: var(--gold); }
-
-  .section-desc {
-    font-size: 0.9rem;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--text-mid);
-    max-width: 500px;
-    margin-bottom: 3.5rem;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5px;
-    background: rgba(8,48,69,0.08);
-  }
-
-  .service-card {
-    background: var(--white);
-    padding: 2.5rem 2rem;
-    position: relative;
-    overflow: hidden;
-    cursor: default;
-    transition: all 0.4s ease;
-  }
-
-  .service-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
-  }
-
-  .service-card:hover {
-    background: var(--navy);
-    transform: translateY(-3px);
-    box-shadow: 0 20px 50px rgba(8,48,69,0.2);
-    z-index: 2;
-  }
-
-  .service-card:hover::before { transform: scaleX(1); }
-  .service-card:hover .service-num { color: rgba(255,255,255,0.2); }
-  .service-card:hover .service-name { color: var(--white); }
-  .service-card:hover .service-desc { color: rgba(255,255,255,0.6); }
-  .service-card:hover .service-icon { color: var(--gold-light); border-color: rgba(184,150,110,0.3); }
-
-  .service-num {
-    font-family: var(--font-display);
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: rgba(8,48,69,0.07);
-    margin-bottom: 1rem;
-    line-height: 1;
-    transition: color 0.4s;
-  }
-
-  .service-icon {
-    width: 44px;
-    height: 44px;
-    border: 1px solid rgba(8,48,69,0.15);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--navy);
-    margin-bottom: 1.2rem;
-    transition: all 0.4s;
-  }
-
-  .service-icon svg { width: 18px; height: 18px; }
-
-  .service-name {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--navy);
-    margin-bottom: 0.6rem;
-    transition: color 0.4s;
-  }
-
-  .service-desc {
-    font-size: 0.8rem;
-    font-weight: 300;
-    line-height: 1.7;
-    color: var(--text-mid);
-    transition: color 0.4s;
-  }
-
-  /* DENTISTAS */
-  .dentistas {
-    background: var(--navy);
-    padding: 6rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .dentistas::before {
-    content: '';
-    position: absolute;
-    top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    border: 1px solid rgba(184,150,110,0.08);
-    border-radius: 50%;
-  }
-
-  .dentistas::after {
-    content: '';
-    position: absolute;
-    bottom: -300px; left: -100px;
-    width: 700px; height: 700px;
-    border: 1px solid rgba(184,150,110,0.05);
-    border-radius: 50%;
-  }
-
-  .dentistas .section-label { color: var(--gold-light); }
-  .dentistas .section-label::before { background: var(--gold-light); }
-  .dentistas .section-title { color: var(--white); }
-  .dentistas .section-title em { color: var(--gold-light); }
-  .dentistas .section-desc { color: rgba(255,255,255,0.5); }
-
-  .dentistas-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    position: relative;
-    z-index: 2;
-  }
-
-  .dentista-card {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 2.5rem 2rem 2rem;
-    position: relative;
-    transition: all 0.4s;
-  }
-
-  .dentista-card:hover {
-    background: rgba(255,255,255,0.07);
-    border-color: rgba(184,150,110,0.3);
-    transform: translateY(-4px);
-  }
-
-  .dentista-photo-wrap {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin-bottom: 1.5rem;
-    border: 2px solid rgba(184,150,110,0.3);
-    background: var(--navy-mid);
-  }
-
-  .dentista-photo-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top center;
-  }
-
-  .dentista-name {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: var(--white);
-    margin-bottom: 0.3rem;
-  }
-
-  .dentista-spec {
-    font-size: 0.7rem;
-    font-weight: 400;
-    letter-spacing: 0.1em;
-    color: var(--gold-light);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-
-  .dentista-desc {
-    font-size: 0.82rem;
-    font-weight: 300;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.5);
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 1rem;
-  }
-
-  /* DIFERENCIAIS */
-  .diferenciais {
-    padding: 6rem 5rem;
-    background: var(--cream);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .diferenciais-visual {
-    position: relative;
-    height: 480px;
-  }
-
-  .diferenciais-img {
-    width: 75%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 2px;
-    display: block;
-    position: relative;
-    z-index: 2;
-  }
-
-  .diferenciais-frame {
-    position: absolute;
-    bottom: -20px;
-    right: -10px;
-    width: 60%;
-    height: 70%;
-    border: 1px solid rgba(184,150,110,0.4);
-    border-radius: 2px;
-    z-index: 1;
-  }
-
-  .diff-card {
-    position: absolute;
-    bottom: 30px;
-    right: -20px;
-    background: var(--navy);
-    color: var(--white);
-    padding: 1.2rem 1.6rem;
-    border-radius: 2px;
-    z-index: 3;
-    min-width: 200px;
-    max-width: 240px;
-  }
-
-  .diff-card strong {
-    font-family: var(--font-display);
-    font-size: 1.6rem;
-    font-weight: 300;
-    display: block;
-    line-height: 1.2;
-    color: var(--gold-light);
-    margin-bottom: 0.3rem;
-  }
-
-  .diff-card span {
-    font-size: 0.68rem;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    display: block;
-    margin-top: 0.3rem;
-  }
-
-  /* TESTIMONIALS */
-  .testimonials-section {
-    background: var(--cream-dark);
-    padding: 5rem 5rem 0;
-    overflow: hidden;
-  }
-
-  .testimonials-track-wrap {
-    position: relative;
-    overflow: hidden;
-    margin-top: 2.5rem;
-    padding-bottom: 3rem;
-  }
-
-  .testimonials-track-wrap::before,
-  .testimonials-track-wrap::after {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 80px;
-    z-index: 2;
-    pointer-events: none;
-  }
-
-  .testimonials-track-wrap::before {
-    left: 0;
-    background: linear-gradient(to right, var(--cream-dark), transparent);
-  }
-
-  .testimonials-track-wrap::after {
-    right: 0;
-    background: linear-gradient(to left, var(--cream-dark), transparent);
-  }
-
-  .testimonials-track {
-    display: flex;
-    gap: 1.2rem;
-    width: max-content;
-    animation: scrollTrack 40s linear infinite;
-  }
-
-  .testimonials-track:hover { animation-play-state: paused; }
-
-  @keyframes scrollTrack {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  .testimonial-card {
-    background: var(--white);
-    border: 1px solid rgba(8,48,69,0.06);
-    padding: 1.6rem 1.8rem;
-    border-radius: 2px;
-    width: 320px;
-    flex-shrink: 0;
-    transition: box-shadow 0.3s, transform 0.3s;
-  }
-
-  .testimonial-card:hover {
-    box-shadow: 0 8px 30px rgba(8,48,69,0.1);
-    transform: translateY(-3px);
-  }
-
-  .testimonial-stars {
-    color: #f59e0b;
-    font-size: 0.85rem;
-    letter-spacing: 2px;
-    margin-bottom: 0.8rem;
-  }
-
-  .testimonial-text {
-    font-size: 0.83rem;
-    font-weight: 300;
-    line-height: 1.75;
-    color: var(--text-mid);
-    margin-bottom: 1.2rem;
-    font-style: italic;
-  }
-
-  .testimonial-author {
-    display: flex;
-    align-items: center;
-    gap: 0.7rem;
-    border-top: 1px solid rgba(8,48,69,0.06);
-    padding-top: 1rem;
-  }
-
-  .testimonial-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: rgba(8,48,69,0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--navy);
-    flex-shrink: 0;
-  }
-
-  .testimonial-name {
-    font-size: 0.78rem;
-    font-weight: 500;
-    color: var(--navy);
-  }
-
-  .testimonial-date {
-    font-size: 0.68rem;
-    color: var(--text-light);
-    margin-top: 1px;
-  }
-
-  .google-badge {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    margin-left: auto;
-  }
-
-  .google-badge svg { width: 16px; height: 16px; }
-
-  .diffs-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-top: 2.5rem;
-  }
-
-  .diff-item {
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-  }
-
-  .diff-icon {
-    width: 44px;
-    height: 44px;
-    background: rgba(8,48,69,0.06);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: var(--navy);
-    margin-top: 2px;
-  }
-
-  .diff-icon svg { width: 18px; height: 18px; }
-
-  .diff-item h4 {
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    font-weight: 400;
-    color: var(--navy);
-    margin-bottom: 0.3rem;
-  }
-
-  .diff-item p {
-    font-size: 0.82rem;
-    font-weight: 300;
-    line-height: 1.75;
-    color: var(--text-mid);
-  }
-
-  /* CONTATO */
-  .contato {
-    background: var(--white);
-    padding: 6rem 5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-  }
-
-  .contato-info { display: flex; flex-direction: column; gap: 0; }
-
-  .info-block {
-    padding: 1.8rem 0;
-    border-bottom: 1px solid rgba(8,48,69,0.06);
-    display: flex;
-    gap: 1.2rem;
-    align-items: flex-start;
-  }
-
-  .info-block:first-of-type { padding-top: 0.5rem; }
-
-  .info-icon {
-    width: 38px;
-    height: 38px;
-    background: rgba(184,150,110,0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    color: var(--gold);
-    margin-top: 2px;
-  }
-
-  .info-icon svg { width: 16px; height: 16px; }
-
-  .info-label {
-    font-size: 0.62rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 0.3rem;
-  }
-
-  .info-value {
-    font-size: 0.92rem;
-    font-weight: 400;
-    color: var(--text-dark);
-    line-height: 1.6;
-  }
-
-  .info-value a {
-    color: inherit;
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .info-value a:hover { color: var(--navy); }
-
-  .map-wrap {
-    width: 100%;
-    border-radius: 2px;
-    overflow: hidden;
-    box-shadow: 0 4px 30px rgba(8,48,69,0.08);
-  }
-
-  .map-wrap iframe {
-    width: 100%;
-    height: 380px;
-    border: none;
-    display: block;
-  }
-
-  .contato-cta {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .btn-whatsapp {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    background: #25D366;
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 1.1rem 2rem;
-    border-radius: 2px;
-    transition: all 0.3s;
-    text-align: center;
-  }
-
-  .btn-whatsapp:hover {
-    background: #20bc5c;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(37,211,102,0.25);
-  }
-
-  .btn-whatsapp svg { width: 20px; height: 20px; flex-shrink: 0; }
-
-  .btn-tel {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    background: transparent;
-    border: 1px solid rgba(8,48,69,0.2);
-    color: var(--navy);
-    text-decoration: none;
-    font-size: 0.78rem;
-    font-weight: 400;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 1.1rem 2rem;
-    border-radius: 2px;
-    transition: all 0.3s;
-    text-align: center;
-  }
-
-  .btn-tel:hover {
-    background: var(--navy);
-    color: var(--white);
-    border-color: var(--navy);
-  }
-
-  .btn-tel svg { width: 16px; height: 16px; }
-
-  /* FOOTER */
-  footer {
-    background: var(--navy);
-    padding: 3rem 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: gap;
-    gap: 1.5rem;
-  }
-
-  .footer-logo {
-    font-family: var(--font-display);
-    font-size: 1.3rem;
-    font-weight: 300;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 0.1em;
-  }
-
-  .footer-copy {
-    font-size: 0.7rem;
-    color: rgba(255,255,255,0.3);
-    letter-spacing: 0.1em;
-  }
-
-  .footer-social {
-    display: flex;
-    gap: 1rem;
-  }
-
-  .footer-social a {
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    transition: all 0.3s;
-  }
-
-  .footer-social a:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-  }
-
-  .footer-social svg { width: 15px; height: 15px; }
-
-  /* ANIMAÇÕES */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* MOBILE NAV */
-  .mobile-menu {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: var(--navy);
-    z-index: 200;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-  }
-
-  .mobile-menu.open { display: flex; }
-
-  .mobile-menu a {
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-family: var(--font-display);
-    font-weight: 300;
-    color: var(--white);
-    letter-spacing: 0.05em;
-  }
-
-  .mobile-menu-close {
-    position: absolute;
-    top: 1.5rem; right: 2rem;
-    background: none;
-    border: none;
-    color: rgba(255,255,255,0.6);
-    font-size: 2rem;
-    cursor: pointer;
-    line-height: 1;
-  }
-
-  /* RESPONSIVO */
-  @media (max-width: 900px) {
-    header { padding: 1rem 1.5rem; }
-    header.scrolled { padding: 0.8rem 1.5rem; }
-
-    nav { display: none; }
-    .hamburger { display: flex; }
-
-    .hero {
-      grid-template-columns: 1fr;
-      min-height: auto;
-    }
-
-    .hero-left {
-      padding: 8rem 2rem 4rem;
-      order: 2;
-    }
-
-    .hero-left::after { display: none; }
-
-    .hero-right {
-      order: 1;
-      height: 55vw;
-      min-height: 280px;
-    }
-
-    .hero-info-strip {
-      position: static;
-      margin-top: 2rem;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .hero-info-strip { animation: fadeUp 0.8s 1s forwards; }
-
-    .badges-strip { padding: 1.2rem 2rem; gap: 1.5rem; justify-content: flex-start; }
-
-    .services { padding: 4rem 1.5rem; }
-    .services-grid { grid-template-columns: 1fr; gap: 1px; }
-
-    .dentistas { padding: 4rem 1.5rem; }
-    .dentistas-grid { grid-template-columns: 1fr; gap: 1rem; }
-
-    .diferenciais {
-      grid-template-columns: 1fr;
-      padding: 4rem 1.5rem;
-      gap: 3rem;
-    }
-
-    .diferenciais-visual { height: 320px; }
-    .diff-card { right: 0; }
-    #sobre { padding: 4rem 1.5rem !important; }
-    #sobre > div:last-child { grid-template-columns: 1fr !important; }
-
-    .contato {
-      grid-template-columns: 1fr;
-      padding: 4rem 1.5rem;
-      gap: 3rem;
-    }
-
-    footer {
-      padding: 2.5rem 1.5rem;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
-    }
-
-    .hero-title { font-size: 2.2rem; }
-  }
-
-  @media (max-width: 600px) {
-    .hero-left { padding: 7rem 1.5rem 3.5rem; }
-    .hero-cta-group { flex-direction: column; align-items: flex-start; }
-    .btn-primary { width: 100%; justify-content: center; }
-  }
+:root{
+  --navy:#083045;
+  --navy-2:#0f4561;
+  --ink:#16232c;
+  --text:#3d4a53;
+  --muted:#6b7780;
+  --cream:#f7f3ee;
+  --sand:#ece2d6;
+  --sand-2:#e2d4c4;
+  --line:#e6ddd2;
+  --white:#ffffff;
+  --wa:#1fa855;
+  --radius:22px;
+  --shadow:0 18px 50px -24px rgba(8,48,69,.35);
+  --serif:'Fraunces', Georgia, serif;
+  --sans:'Montserrat', system-ui, -apple-system, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:var(--sans);color:var(--text);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1180px, 100% - 40px);margin-inline:auto}
+.kicker{display:inline-flex;align-items:center;gap:10px;font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--navy)}
+.kicker::before{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+h1,h2,h3{font-family:var(--serif);font-weight:300;color:var(--ink);letter-spacing:-.01em;line-height:1.08}
+h2{font-size:clamp(2.1rem, 4.4vw, 3.3rem)}
+h2 em,h1 em{font-style:italic;color:var(--navy)}
+.lead{font-size:1.06rem;color:var(--muted);max-width:560px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--sans);font-weight:600;font-size:.95rem;padding:16px 28px;border-radius:999px;transition:transform .25s, box-shadow .25s, background .25s, color .25s;cursor:pointer;border:0;white-space:nowrap}
+.btn svg{width:19px;height:19px;flex:none}
+.btn-primary{background:var(--navy);color:#fff;box-shadow:0 14px 30px -14px rgba(8,48,69,.7)}
+.btn-primary:hover{transform:translateY(-2px);background:var(--navy-2)}
+.btn-ghost{color:var(--navy);border:1px solid rgba(8,48,69,.25);background:transparent}
+.btn-ghost:hover{background:var(--navy);color:#fff}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-light:hover{transform:translateY(-2px)}
+
+/* topbar */
+.topbar{background:var(--navy);color:#dbe6ec;font-size:.8rem}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;padding:9px 0}
+.topbar span{display:inline-flex;align-items:center;gap:8px}
+.topbar svg{width:14px;height:14px;opacity:.8}
+
+/* header */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(247,243,238,.86);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s, background .3s}
+header.nav.scrolled{border-color:var(--line);background:rgba(247,243,238,.95)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo .sym{height:40px;width:auto}
+.logo .word{height:17px;width:auto;margin-top:6px}
+.menu{display:flex;align-items:center;gap:34px}
+.menu a:not(.btn){font-size:.88rem;font-weight:500;color:var(--ink);position:relative}
+.menu a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-6px;height:1px;width:0;background:var(--navy);transition:width .3s}
+.menu a:not(.btn):hover::after{width:100%}
+.menu .btn{padding:12px 22px;font-size:.86rem}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;color:var(--navy)}
+.burger svg{width:26px;height:26px}
+
+/* hero */
+.hero{position:relative;padding:40px 0 0;overflow:hidden;min-height:calc(100svh - 112px);display:flex;align-items:stretch}
+.hero > .wrap{min-height:100%}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:30px;align-items:center}
+.hero-text{padding:20px 0 70px}
+.hero h1{font-size:clamp(2.6rem, 5.6vw, 4.6rem);margin:22px 0 24px}
+.hero h1 .type{display:block;width:fit-content;max-width:100%;margin-top:14px;font-size:.56em;font-style:italic;font-weight:400;line-height:1;white-space:nowrap;color:#fff;background:var(--navy);padding:.32em .5em .36em;border-radius:.4em;min-height:1.68em;box-shadow:0 14px 30px -16px rgba(8,48,69,.8)}
+.hero h1 .type::after{content:"";display:inline-block;width:2px;height:.85em;background:var(--sand);margin-left:6px;vertical-align:-.05em;animation:blink .9s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero h1 .hl{font-weight:400;color:var(--navy);background:linear-gradient(transparent 68%, var(--sand-2) 68%, var(--sand-2) 92%, transparent 92%);padding:0 .06em}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero .note{margin-top:22px;font-size:.84rem;color:var(--muted);display:flex;align-items:center;gap:10px}
+.hero .note i{width:8px;height:8px;border-radius:50%;background:var(--wa);box-shadow:0 0 0 4px rgba(31,168,85,.18);flex:none}
+.hero-visual{position:relative;align-self:end;display:flex;justify-content:center;opacity:1!important;transform:none!important}
+.arch{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:86%;height:84%;background:linear-gradient(180deg,var(--sand) 0%, var(--sand-2) 100%);border-radius:999px 999px 0 0}
+.arch::before{content:"";position:absolute;inset:-18px -18px 0;border:1px solid var(--sand-2);border-bottom:0;border-radius:999px 999px 0 0}
+.hero-visual img{position:relative;width:auto;height:auto;max-width:100%;max-height:calc(100svh - 160px);min-height:min(540px, 62svh);object-fit:contain;object-position:bottom;animation:heroIn 1.1s cubic-bezier(.2,.7,.2,1) both}
+@keyframes heroIn{from{opacity:0}to{opacity:1}}
+.badge{position:absolute;background:#fff;border-radius:16px;padding:14px 18px;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;font-size:.82rem;line-height:1.35;color:var(--ink)}
+.badge b{display:block;font-weight:600}
+.badge span{color:var(--muted)}
+.badge .ic{width:38px;height:38px;border-radius:12px;background:var(--cream);display:grid;place-items:center;color:var(--navy);flex:none}
+.badge .ic svg{width:20px;height:20px}
+.badge.b1{left:-2%;top:52%}
+.badge.b2{right:-2%;bottom:16%}
+
+/* features */
+.features{background:var(--navy);color:#fff;position:relative;z-index:2}
+.features .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.feat{display:flex;gap:16px;align-items:flex-start;padding:34px 26px}
+.feat + .feat{border-left:1px solid rgba(255,255,255,.12)}
+.feat .ic{width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;flex:none}
+.feat .ic svg{width:21px;height:21px}
+.feat b{display:block;font-family:var(--serif);font-weight:400;font-size:1.22rem;line-height:1.2;margin-bottom:4px}
+.feat p{font-size:.84rem;color:#b9cbd5;line-height:1.5}
+
+/* sections */
+section.block{padding:120px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px}
+.head h2{margin-top:16px}
+.head.center{flex-direction:column;align-items:center;text-align:center}
+.head.center .kicker::after{content:"";width:28px;height:1px;background:currentColor;opacity:.6}
+
+/* treatments */
+.grid-t{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tcard{background:#fff;border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);transition:transform .35s, box-shadow .35s}
+.tcard:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.tcard figure{aspect-ratio:4/3;overflow:hidden;position:relative;background:var(--sand)}
+.tcard figure img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.tcard:hover figure img{transform:scale(1.06)}
+.tcard .num{position:absolute;top:16px;left:16px;background:rgba(255,255,255,.92);color:var(--navy);font-size:.72rem;font-weight:700;letter-spacing:.1em;padding:6px 11px;border-radius:999px}
+.tcard .body{padding:26px 26px 28px;display:flex;flex-direction:column;flex:1}
+.tcard h3{font-size:1.6rem;margin-bottom:10px}
+.tcard p{font-size:.92rem;color:var(--muted);flex:1}
+.tcard .go{margin-top:22px;display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.86rem;color:var(--navy)}
+.tcard .go svg{width:16px;height:16px;transition:transform .3s}
+.tcard:hover .go svg{transform:translateX(5px)}
+
+/* team */
+.team{background:#fff}
+.grid-d{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.dcard{text-align:center}
+.dcard .photo{position:relative;aspect-ratio:4/5;display:flex;align-items:flex-end;justify-content:center;overflow:hidden;border-radius:999px 999px var(--radius) var(--radius);background:linear-gradient(180deg,var(--cream),var(--sand))}
+.dcard .photo img{width:82%;height:96%;object-fit:contain;object-position:bottom;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.dcard:hover .photo img{transform:translateY(-6px) scale(1.02)}
+.dcard h3{font-size:1.75rem;margin:26px 0 12px}
+.tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.tags span{font-size:.78rem;font-weight:500;color:var(--navy);background:var(--cream);border:1px solid var(--line);padding:6px 13px;border-radius:999px}
+.dcard small{display:block;margin-top:12px;font-size:.8rem;color:var(--muted)}
+
+/* clinic */
+.clinic{padding:0}
+.clinic .inner{display:grid;grid-template-columns:1fr 1fr;background:var(--navy);border-radius:32px;overflow:hidden;color:#d4e1e8}
+.clinic .pic{position:relative;min-height:520px}
+.clinic .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.clinic .txt{padding:70px 64px}
+.clinic .kicker{color:#a9c2cf}
+.clinic h2{color:#fff;margin:16px 0 22px}
+.clinic h2 em{color:var(--sand)}
+.hours{margin:30px 0 34px;border-top:1px solid rgba(255,255,255,.14)}
+.hours div{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.14);font-size:.93rem}
+.hours div b{color:#fff;font-weight:600}
+.emerg{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.07);border-radius:16px;padding:16px 18px;font-size:.88rem;margin-bottom:34px}
+.emerg svg{width:22px;height:22px;flex:none;color:var(--sand);margin-top:1px}
+
+/* contact */
+.contact .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:50px;align-items:stretch}
+.clist{display:grid;gap:14px;margin-top:34px}
+.citem{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px;transition:border-color .3s, transform .3s}
+a.citem:hover{border-color:var(--navy);transform:translateX(4px)}
+.citem .ic{width:46px;height:46px;border-radius:14px;background:var(--cream);color:var(--navy);display:grid;place-items:center;flex:none}
+.citem .ic svg{width:21px;height:21px}
+.citem small{display:block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.citem b{font-weight:600;color:var(--ink);font-size:.98rem;word-break:break-word}
+.map{border-radius:28px;overflow:hidden;min-height:460px;border:1px solid var(--line);background:var(--sand)}
+.map iframe{width:100%;height:100%;min-height:460px;border:0;display:block;filter:saturate(.85)}
+
+/* cta band */
+.band{padding:110px 0 120px;text-align:center}
+.band h2{max-width:760px;margin:18px auto 18px}
+.band .lead{margin:0 auto 34px}
+.band .ctas{display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+
+/* footer */
+footer{background:var(--ink);color:#aab6be;padding:60px 0 34px;font-size:.86rem}
+footer .top{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1)}
+footer .logo .sym{height:44px}
+footer .logo .word{height:18px}
+.social{display:flex;gap:12px}
+.social a{width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:grid;place-items:center;color:#fff;transition:background .3s, border-color .3s}
+.social a:hover{background:#fff;color:var(--ink)}
+.social svg{width:19px;height:19px}
+footer .bottom{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:26px}
+
+/* floating whatsapp */
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:62px;height:62px;border-radius:50%;background:var(--wa);color:#fff;display:grid;place-items:center;box-shadow:0 14px 34px -10px rgba(31,168,85,.7);transform:scale(0);transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+.wa-float.show{transform:scale(1)}
+.wa-float svg{width:30px;height:30px}
+.wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;background:var(--wa);z-index:-1;animation:ping 2.4s infinite}
+@keyframes ping{0%{transform:scale(1);opacity:.5}80%,100%{transform:scale(1.6);opacity:0}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+@media (prefers-reduced-motion: reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* responsive */
+@media (max-width: 1020px){
+  .hero{min-height:0;display:block}
+  .hero .wrap{grid-template-columns:1fr;text-align:center}
+  .hero h1 .type{margin-inline:auto}
+  .hero-visual img{min-height:0;max-height:none;max-width:100%}
+  .hero-text{padding-bottom:20px}
+  .hero .lead{margin-inline:auto}
+  .hero .ctas,.hero .note{justify-content:center}
+  .hero .kicker::before{display:none}
+  .hero-visual{max-width:640px;margin:0 auto;width:100%}
+  .features .wrap{grid-template-columns:repeat(2,1fr)}
+  .feat:nth-child(3){border-left:0}
+  .feat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12)}
+  .grid-t{grid-template-columns:repeat(2,1fr)}
+  .clinic .inner{grid-template-columns:1fr}
+  .clinic .pic{min-height:340px}
+  .contact .wrap{grid-template-columns:1fr}
+}
+@media (max-width: 860px){
+  .menu{position:fixed;inset:78px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--cream);padding:10px 20px 24px;border-bottom:1px solid var(--line);transform:translateY(-12px);opacity:0;pointer-events:none;transition:opacity .25s, transform .25s}
+  .menu.open{opacity:1;transform:none;pointer-events:auto}
+  .menu a:not(.btn){padding:16px 4px;border-bottom:1px solid var(--line);font-size:1rem}
+  .menu .btn{margin-top:18px}
+  .burger{display:grid;place-items:center}
+  .topbar .addr{display:none}
+  .topbar .wrap{justify-content:center}
+  .grid-d{grid-template-columns:1fr;max-width:420px;margin-inline:auto;gap:56px}
+  .head{flex-direction:column;align-items:flex-start;gap:16px}
+}
+@media (max-width: 640px){
+  section.block{padding:84px 0}
+  .wrap{width:calc(100% - 32px)}
+  .hero{padding-top:44px}
+  .hero .ctas .btn{width:100%}
+  .hero-visual{width:calc(100% + 32px);margin-inline:-16px;max-width:none}
+  .hero h1 .type{font-size:.6em}
+  .badge{display:none}
+  .features .wrap{grid-template-columns:1fr}
+  .feat{padding:22px 6px}
+  .feat + .feat{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
+  .grid-t{grid-template-columns:1fr}
+  .clinic .inner{border-radius:24px}
+  .clinic .txt{padding:44px 26px}
+  .hours div{flex-direction:column;gap:2px}
+  .map,.map iframe{min-height:340px}
+  .band{padding:84px 0 96px}
+  .band .ctas .btn{width:100%}
+  footer .top,footer .bottom{flex-direction:column;align-items:flex-start}
+  .logo .sym{height:34px}.logo .word{height:14px}
+}
 </style>
 </head>
 <body>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu-close" onclick="closeMobileMenu()">&#215;</button>
-  <a href="#servicos" onclick="closeMobileMenu()">Serviços</a>
-  <a href="#dentistas" onclick="closeMobileMenu()">Nossas Dentistas</a>
-  <a href="#contato" onclick="closeMobileMenu()">Contato</a>
-  <a href="https://api.whatsapp.com/send?phone=5553984780026&text=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20agendar%20uma%20consulta!" target="_blank" style="color: #4ade80; font-size: 1rem; letter-spacing: 0.1em; font-family: 'Jost', sans-serif; font-weight: 500;">Agendar Consulta</a>
+<!-- ícones -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.47-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.75-.72 2-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.45-5.02c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.99 6.67 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.21-4.24 9.43-9.44 9.43m8.04-17.47A11.3 11.3 0 0 0 12.05.7C5.78.7.68 5.8.68 12.07c0 2 .52 3.96 1.52 5.68L.58 23.7l6.08-1.6a11.3 11.3 0 0 0 5.38 1.38h.01c6.27 0 11.37-5.1 11.38-11.37 0-3.04-1.18-5.9-3.33-8.05"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></g></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></g></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></g></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><path d="M17.6 6.4h.01"/></g></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 22v-8.2h2.8l.4-3.2h-3.2V8.5c0-.9.3-1.6 1.6-1.6h1.7V4.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.4H7.3v3.2h2.8V22h3.4z"/></symbol>
+</svg>
+
+<div class="topbar">
+  <div class="wrap">
+    <span class="addr"><svg><use href="#i-pin"/></svg>R. Gen. Neto, 1035, Sala 302 · Centro de Pelotas</span>
+    <span><svg><use href="#i-phone"/></svg>(53) 3307-6857 · WhatsApp (53) 98478-0026</span>
+  </div>
 </div>
 
-<!-- HEADER -->
-<header id="mainHeader">
-  <a class="logo-wrap" href="#">
-    <span class="logo-symbol">ar</span>
-    <span class="logo-text">odontologia</span>
-  </a>
-  <nav>
-    <a href="#servicos">Serviços</a>
-    <a href="#dentistas">Dentistas</a>
-    <a href="#contato">Contato</a>
-    <a href="https://api.whatsapp.com/send?phone=5553984780026&text=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20agendar%20uma%20consulta!" target="_blank" class="nav-cta">Agendar</a>
-  </nav>
-  <button class="hamburger" onclick="openMobileMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#topo" class="logo" aria-label="AR Odontologia">
+      <img class="sym" src="img/simbolo.png" alt="AR">
+      <img class="word" src="img/odontologia.png" alt="odontologia">
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#dentistas">Dentistas</a>
+      <a href="#consultorio">Consultório</a>
+      <a href="#contato">Contato</a>
+      <a class="btn btn-primary wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta!" href="#"><svg><use href="#i-wa"/></svg>Agendar consulta</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false"><svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  </div>
 </header>
+
+<main id="topo">
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <p class="hero-tag">Clínica Odontológica · Pelotas, RS</p>
-    <h1 class="hero-title">Uma clínica<br><em>especializada</em><br>em você.</h1>
-    <p class="hero-sub">Cuidado de excelência com tecnologia de ponta e atendimento personalizado. Agende sua consulta e descubra o tratamento ideal para o seu sorriso.</p>
-    <div class="hero-cta-group">
-      <a href="https://api.whatsapp.com/send?phone=5553984780026&text=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20agendar%20uma%20consulta!" target="_blank" class="btn-primary">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.525 5.845L0 24l6.32-1.497A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.007-1.374l-.36-.213-3.729.883.937-3.63-.234-.374A9.82 9.82 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/></svg>
-        Agendar pelo WhatsApp
-      </a>
-      <a href="tel:5353307685" class="btn-ghost">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.79 19.79 19.79 0 010 1.22 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        (53) 3307-6857
-      </a>
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="kicker rv">Clínica odontológica em Pelotas</span>
+      <h1 class="rv d1">Uma clínica <strong class="hl">Pelotense</strong> especializada <span class="type" id="type" aria-live="polite">em sorrisos</span></h1>
+      <p class="lead rv d2">Agenda imediata, atendimentos também em horários flexíveis e produtos com qualidade garantida. Tudo no centro de Pelotas.</p>
+      <div class="ctas rv d3">
+        <a class="btn btn-primary wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta!" href="#"><svg><use href="#i-wa"/></svg>Agendar pelo WhatsApp</a>
+        <a class="btn btn-ghost" href="tel:+555333076857"><svg><use href="#i-phone"/></svg>(53) 3307-6857</a>
+      </div>
+      <p class="note rv d3"><i></i>Emergências em domingos e feriados com hora marcada</p>
     </div>
-    <div class="hero-info-strip">
-      <div class="hero-info-item">
-        <strong>10+</strong>
-        <span>Anos de experiência</span>
-      </div>
-      <div class="hero-info-item">
-        <strong>3</strong>
-        <span>Especialidades</span>
-      </div>
-      <div class="hero-info-item">
-        <strong>100%</strong>
-        <span>Materiais certificados</span>
-      </div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <div class="hero-right-overlay"></div>
-    <!-- Foto principal das dentistas -->
-    <img class="hero-img" src="https://static.wixstatic.com/media/fd2942_bc1a3fa46b854db7aead690767331c4d~mv2.png/v1/crop/x_123,y_0,w_1674,h_1080/fill/w_1562,h_1008,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ar%20odontologia%201.png" alt="Equipe AR Odontologia">
-  </div>
-</section>
-
-<!-- BADGES STRIP -->
-<div class="badges-strip">
-  <div class="badge-item">
-    <div class="badge-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-    </div>
-    Agenda imediata disponível
-  </div>
-  <div class="badge-sep"></div>
-  <div class="badge-item">
-    <div class="badge-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-    </div>
-    Horários flexíveis — seg. a sáb.
-  </div>
-  <div class="badge-sep"></div>
-  <div class="badge-item">
-    <div class="badge-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-    </div>
-    Materiais de qualidade garantida
-  </div>
-  <div class="badge-sep"></div>
-  <div class="badge-item">
-    <div class="badge-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-    </div>
-    Centro de Pelotas · Sala 302
-  </div>
-</div>
-
-<!-- SERVIÇOS -->
-<section class="services" id="servicos">
-  <div class="reveal">
-    <p class="section-label">Tratamentos</p>
-    <h2 class="section-title">Nossos <em>Serviços</em></h2>
-    <p class="section-desc">Do diagnóstico ao resultado final, oferecemos tratamentos completos com tecnologia e dedicação.</p>
-  </div>
-  <div class="services-grid reveal">
-    <div class="service-card">
-      <div class="service-num">01</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 017 7c0 2.5-1.3 4.7-3.2 6.1V17a2 2 0 01-2 2h-3.6a2 2 0 01-2-2v-1.9A7 7 0 0112 2z"/><path d="M10 22v-3h4v3"/></svg>
-      </div>
-      <h3 class="service-name">Implante Dental</h3>
-      <p class="service-desc">Reposição de dentes com implantes de titânio de alta precisão, com resultado natural e durável.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">02</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
-      </div>
-      <h3 class="service-name">Clareamento Dental</h3>
-      <p class="service-desc">Clarear o sorriso com segurança e eficácia, de forma personalizada ao seu caso.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">03</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-      </div>
-      <h3 class="service-name">Aparelho Ortodôntico</h3>
-      <p class="service-desc">Alinhamento dos dentes com aparelho tradicional ou alinhadores modernos e discretos.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">04</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h.01M12 12h.01M18 12h.01"/></svg>
-      </div>
-      <h3 class="service-name">Lentes de Contato</h3>
-      <p class="service-desc">Transformação estética do sorriso com facetas porcelana de ultrafina espessura.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">05</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-      </div>
-      <h3 class="service-name">Tratamento de Canal</h3>
-      <p class="service-desc">Endodontia microscópica com precisão máxima e mínimo desconforto para o paciente.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-num">06</div>
-      <div class="service-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      </div>
-      <h3 class="service-name">Prótese Dentária</h3>
-      <p class="service-desc">Reabilitação oral completa com próteses fixas e removíveis de alta estética e função.</p>
-    </div>
-  </div>
-</section>
-
-<!-- DENTISTAS -->
-<section class="dentistas" id="dentistas">
-  <div class="reveal">
-    <p class="section-label">Equipe</p>
-    <h2 class="section-title">Nossas <em>Dentistas</em></h2>
-    <p class="section-desc">Profissionais especializadas, comprometidas com a sua saúde bucal e bem-estar.</p>
-  </div>
-  <div class="dentistas-grid reveal">
-    <div class="dentista-card">
-      <div style="width:80px;height:80px;border-radius:50%;background:rgba(184,150,110,0.15);border:2px solid rgba(184,150,110,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
-        <span style="font-family:var(--font-display);font-size:1.6rem;font-weight:300;color:var(--gold-light);letter-spacing:0.05em;">AR</span>
-      </div>
-      <div class="dentista-name">Dra. Andressa Rickes</div>
-      <div class="dentista-spec">Reabilitação Oral<br>Prótese Dentária · Estética</div>
-      <p class="dentista-desc">Especialista em reabilitação oral e próteses, oferecendo tratamentos que unem função e estética para transformar sorrisos.</p>
-    </div>
-    <div class="dentista-card">
-      <div style="width:80px;height:80px;border-radius:50%;background:rgba(184,150,110,0.15);border:2px solid rgba(184,150,110,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
-        <span style="font-family:var(--font-display);font-size:1.6rem;font-weight:300;color:var(--gold-light);letter-spacing:0.05em;">AL</span>
-      </div>
-      <div class="dentista-name">Dra. Ana Laura Plá</div>
-      <div class="dentista-spec">Ortodontia · Alinhadores<br>Harmonização Orofacial</div>
-      <p class="dentista-desc">Especialista em ortodontia e alinhadores invisíveis, com expertise em harmonização orofacial para resultados naturais e harmoniosos.</p>
-    </div>
-    <div class="dentista-card">
-      <div style="width:80px;height:80px;border-radius:50%;background:rgba(184,150,110,0.15);border:2px solid rgba(184,150,110,0.3);display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;">
-        <span style="font-family:var(--font-display);font-size:1.6rem;font-weight:300;color:var(--gold-light);letter-spacing:0.05em;">RG</span>
-      </div>
-      <div class="dentista-name">Dra. Rafaella da Gama</div>
-      <div class="dentista-spec">Endodontia Microscópica<br>Clínica Geral</div>
-      <p class="dentista-desc">Especialista em endodontia microscópica com precisão cirúrgica, garantindo tratamentos de canal confortáveis e de alta eficácia.</p>
-    </div>
-  </div>
-</section>
-
-<!-- DEPOIMENTOS -->
-<section class="testimonials-section">
-  <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto;">
-    <p class="section-label" style="justify-content:center;">
-      <span style="display:inline-block;width:30px;height:1px;background:var(--gold);vertical-align:middle;margin-right:0.8rem;"></span>
-      Depoimentos Google
-    </p>
-    <h2 class="section-title" style="text-align:center;">O que nossas <em>pacientes</em> dizem</h2>
-    <p class="section-desc" style="margin:0 auto;">Avaliações reais de quem viveu a experiência AR Odontologia.</p>
-  </div>
-
-  <div class="testimonials-track-wrap">
-    <div class="testimonials-track" id="testimonialsTrack">
-
-      <!-- Card 1 -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Quero agradecer pelo bom atendimento. Já tinha ouvido falar no trabalho da Andressa por meio de uma amiga, então já tinha confiança de um serviço de boa qualidade. Fiquei muito satisfeita. Ambiente limpo, organizado e aconchegante."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">CR</div>
-          <div>
-            <div class="testimonial-name">Claudia Rosso</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Consultório muito bem equipado, além de ser lindo, em uma ótima localização. Impecável! As profissionais são maravilhosas, prestam um ótimo atendimento e são especialistas no que fazem. Indico demais."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">BO</div>
-          <div>
-            <div class="testimonial-name">Bibiana Oliveira</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"O consultório é lindo, aconchegante e maravilhoso!! Além das profissionais incríveis que trabalham por lá, é tudo ótimo!!"</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">AC</div>
-          <div>
-            <div class="testimonial-name">Alana Costa Ney</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Atendimento impecável, consultório organizado e limpo! Ótimas profissionais. Rafaella a melhor endo, super recomendo."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">JP</div>
-          <div>
-            <div class="testimonial-name">Jennifer Oliz Pereira</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Excelente atendimento, ambiente agradável, bem higienizado e profissionais altamente qualificados. A Rafaella e a Andressa são ótimas e eu nunca fui tão bem atendida!"</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">VC</div>
-          <div>
-            <div class="testimonial-name">Victória Castelo</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 6 -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Lugar higienizado, profissionais competentes e preço acessível top top."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">PD</div>
-          <div>
-            <div class="testimonial-name">Pedro Damé</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 7 -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Consultório lindo, limpo e aconchegante! Profissionais muito competentes e dedicadas com os pacientes!"</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">BA</div>
-          <div>
-            <div class="testimonial-name">Bettina de Marco Anselmo</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 8 -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Atendimento impecável!! Dentistas atenciosas e muito profissionais!!"</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">MS</div>
-          <div>
-            <div class="testimonial-name">Manuela da Silva Sposito</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Card 9 -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Consultório lindo e aconchegante, além de excelentes profissionais. Minha dentista maravilhosa, Andressa! Super recomendo!"</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">PS</div>
-          <div>
-            <div class="testimonial-name">Paula Silva</div>
-            <div class="testimonial-date">out. 2019</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-
-      <!-- Duplica para loop infinito -->
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Quero agradecer pelo bom atendimento. Já tinha ouvido falar no trabalho da Andressa por meio de uma amiga, então já tinha confiança de um serviço de boa qualidade. Fiquei muito satisfeita. Ambiente limpo, organizado e aconchegante."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">CR</div>
-          <div>
-            <div class="testimonial-name">Claudia Rosso</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Consultório muito bem equipado, além de ser lindo, em uma ótima localização. Impecável! As profissionais são maravilhosas, prestam um ótimo atendimento e são especialistas no que fazem. Indico demais."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">BO</div>
-          <div>
-            <div class="testimonial-name">Bibiana Oliveira</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="testimonial-stars">★★★★★</div>
-        <p class="testimonial-text">"Excelente atendimento, ambiente agradável, bem higienizado e profissionais altamente qualificados. A Rafaella e a Andressa são ótimas e eu nunca fui tão bem atendida!"</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">VC</div>
-          <div>
-            <div class="testimonial-name">Victória Castelo</div>
-            <div class="testimonial-date">jul. 2021</div>
-          </div>
-          <div class="google-badge">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
-          </div>
-        </div>
-      </div>
-
+    <div class="hero-visual">
+      <div class="arch"></div>
+      <img src="img/equipe.webp" alt="Dra. Andressa Rickes, Dra. Ana Laura Plá e Dra. Rafaella da Gama, dentistas da AR Odontologia" width="1200" height="984" fetchpriority="high">
+      <div class="badge b1"><div class="ic"><svg><use href="#i-cal"/></svg></div><div><b>Agenda imediata</b><span>Horários flexíveis</span></div></div>
+      <div class="badge b2"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><b>Centro de Pelotas</b><span>R. Gen. Neto, 1035</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- DIFERENCIAIS -->
-<section id="sobre" style="padding:6rem 5rem;background:var(--cream);">
-  <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 3.5rem;">
-    <p class="section-label" style="justify-content:center;">
-      <span style="display:inline-block;width:30px;height:1px;background:var(--gold);vertical-align:middle;margin-right:0.8rem;"></span>
-      Por que nos escolher
-    </p>
-    <h2 class="section-title" style="text-align:center;">Cuidado que vai além do <em>sorriso</em></h2>
-    <p class="section-desc" style="margin:0 auto;">Na AR Odontologia, cada detalhe importa. Combinamos tecnologia de ponta com um atendimento verdadeiramente humano.</p>
+<div class="features">
+  <div class="wrap">
+    <div class="feat"><div class="ic"><svg><use href="#i-cal"/></svg></div><div><b>Agenda imediata</b><p>Marque sua consulta sem longas esperas.</p></div></div>
+    <div class="feat"><div class="ic"><svg><use href="#i-clock"/></svg></div><div><b>Horários flexíveis</b><p>Atendimentos também em horários flexíveis.</p></div></div>
+    <div class="feat"><div class="ic"><svg><use href="#i-check"/></svg></div><div><b>Qualidade garantida</b><p>Produtos utilizados com qualidade garantida.</p></div></div>
+    <div class="feat"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><b>Centro de Pelotas</b><p>R. Gen. Neto, 1035, Sala 302.</p></div></div>
   </div>
+</div>
 
-  <div class="reveal" style="display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;max-width:900px;margin:0 auto;">
-
-    <div style="background:var(--white);border:1px solid rgba(8,48,69,0.07);padding:2rem 2rem 1.8rem;border-radius:2px;display:flex;flex-direction:column;gap:1rem;transition:box-shadow 0.3s,transform 0.3s;" onmouseenter="this.style.boxShadow='0 12px 40px rgba(8,48,69,0.1)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.boxShadow='none';this.style.transform='translateY(0)'">
-      <div style="width:48px;height:48px;background:rgba(184,150,110,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+<!-- TRATAMENTOS -->
+<section class="block" id="tratamentos">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <span class="kicker rv">Nossos serviços</span>
+        <h2 class="rv d1">Tratamentos para cada <em>sorriso</em></h2>
       </div>
-      <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--navy);">Atendimento humanizado</h3>
-      <p style="font-size:0.82rem;font-weight:300;line-height:1.8;color:var(--text-mid);">Sabemos que ir ao dentista pode gerar ansiedade. Por isso criamos um ambiente acolhedor, com escuta ativa e respeito ao tempo de cada paciente — sem pressa, sem julgamentos.</p>
+      <p class="lead rv d2">Escolha o tratamento e fale direto com a clínica pelo WhatsApp para agendar sua avaliação.</p>
     </div>
+    <div class="grid-t">
+      <a class="tcard rv wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta de implante dental" href="#">
+        <figure><img src="img/implante.webp" alt="Implante dental" loading="lazy"><span class="num">01</span></figure>
+        <div class="body"><h3>Implante Dental</h3><p>Reposição de dentes perdidos com implante e coroa sob medida, devolvendo função e estética.</p><span class="go">Agendar avaliação <svg><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a class="tcard rv d1 wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta de clareamento" href="#">
+        <figure><img src="img/clareamento.webp" alt="Antes e depois de clareamento dental" loading="lazy"><span class="num">02</span></figure>
+        <div class="body"><h3>Clareamento Dental</h3><p>Dentes mais brancos com técnica segura e acompanhamento profissional.</p><span class="go">Agendar avaliação <svg><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a class="tcard rv d2 wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta de aparelho ortodôntico" href="#">
+        <figure><img src="img/aparelho.webp" alt="Aparelho fixo e alinhador transparente" loading="lazy"><span class="num">03</span></figure>
+        <div class="body"><h3>Aparelho Ortodôntico</h3><p>Aparelho fixo ou alinhadores transparentes para alinhar os dentes.</p><span class="go">Agendar avaliação <svg><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a class="tcard rv wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta de lentes de contato dentais" href="#">
+        <figure><img src="img/lentes.webp" alt="Sorriso com lentes de contato dentais" loading="lazy"><span class="num">04</span></figure>
+        <div class="body"><h3>Lentes de Contato Dentais</h3><p>Lâminas finas que corrigem cor, forma e tamanho dos dentes.</p><span class="go">Agendar avaliação <svg><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a class="tcard rv d1 wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta de tratamento de canal" href="#">
+        <figure><img src="img/canal.webp" alt="Ilustração de tratamento de canal" loading="lazy"><span class="num">05</span></figure>
+        <div class="body"><h3>Tratamento de Canal</h3><p>Endodontia com microscópio para tratar o dente e preservá-lo.</p><span class="go">Agendar avaliação <svg><use href="#i-arrow"/></svg></span></div>
+      </a>
+      <a class="tcard rv d2 wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta de prótese dental" href="#">
+        <figure><img src="img/protese.webp" alt="Prótese dental" loading="lazy" style="object-position:center 35%"><span class="num">06</span></figure>
+        <div class="body"><h3>Prótese Dental</h3><p>Reabilitação oral com próteses para recuperar a mastigação e o sorriso.</p><span class="go">Agendar avaliação <svg><use href="#i-arrow"/></svg></span></div>
+      </a>
+    </div>
+  </div>
+</section>
 
-    <div style="background:var(--white);border:1px solid rgba(8,48,69,0.07);padding:2rem 2rem 1.8rem;border-radius:2px;display:flex;flex-direction:column;gap:1rem;transition:box-shadow 0.3s,transform 0.3s;" onmouseenter="this.style.boxShadow='0 12px 40px rgba(8,48,69,0.1)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.boxShadow='none';this.style.transform='translateY(0)'">
-      <div style="width:48px;height:48px;background:rgba(184,150,110,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+<!-- DENTISTAS -->
+<section class="block team" id="dentistas">
+  <div class="wrap">
+    <div class="head center">
+      <span class="kicker rv">Nossas dentistas</span>
+      <h2 class="rv d1">Quem cuida do <em>seu sorriso</em></h2>
+    </div>
+    <div class="grid-d">
+      <article class="dcard rv">
+        <div class="photo"><img src="img/andressa.webp" alt="Dra. Andressa Rickes" loading="lazy"></div>
+        <h3>Dra. Andressa Rickes</h3>
+        <div class="tags"><span>Reabilitação Oral e Prótese Dentária</span><span>Estética Dentária</span></div>
+        <small>Formada na UFPel</small>
+      </article>
+      <article class="dcard rv d1">
+        <div class="photo"><img src="img/analaura.webp" alt="Dra. Ana Laura Plá" loading="lazy"></div>
+        <h3>Dra. Ana Laura Plá</h3>
+        <div class="tags"><span>Ortodontia e Alinhadores</span><span>Harmonização Orofacial</span></div>
+      </article>
+      <article class="dcard rv d2">
+        <div class="photo"><img src="img/rafaella.webp" alt="Dra. Rafaella da Gama" loading="lazy"></div>
+        <h3>Dra. Rafaella da Gama</h3>
+        <div class="tags"><span>Endodontia Microscópica</span><span>Clínica Geral</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTÓRIO -->
+<section class="block clinic-wrap" id="consultorio">
+  <div class="wrap clinic">
+    <div class="inner rv">
+      <div class="pic"><img src="img/consultorio.webp" alt="Atendimento no consultório da AR Odontologia" loading="lazy"></div>
+      <div class="txt">
+        <span class="kicker">Consultório</span>
+        <h2>No <em>centro</em> de Pelotas</h2>
+        <p>Rua General Neto, 1035, Sala 302. Pelotas, RS.</p>
+        <div class="hours">
+          <div><span>Segunda a sexta</span><b>08:30 às 19:30</b></div>
+          <div><span>Sábados</span><b>09:00 às 14:00</b></div>
+        </div>
+        <div class="emerg"><svg><use href="#i-alert"/></svg><span>Atendimentos de emergência em domingos e feriados, com hora marcada.</span></div>
+        <a class="btn btn-light wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta!" href="#"><svg><use href="#i-wa"/></svg>Agendar consulta</a>
       </div>
-      <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--navy);">Tecnologia e materiais certificados</h3>
-      <p style="font-size:0.82rem;font-weight:300;line-height:1.8;color:var(--text-mid);">Utilizamos equipamentos modernos e materiais com certificação internacional. Do diagnóstico ao acabamento final, cada etapa é feita com precisão e máxima segurança para você.</p>
     </div>
-
-    <div style="background:var(--white);border:1px solid rgba(8,48,69,0.07);padding:2rem 2rem 1.8rem;border-radius:2px;display:flex;flex-direction:column;gap:1rem;transition:box-shadow 0.3s,transform 0.3s;" onmouseenter="this.style.boxShadow='0 12px 40px rgba(8,48,69,0.1)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.boxShadow='none';this.style.transform='translateY(0)'">
-      <div style="width:48px;height:48px;background:rgba(184,150,110,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold);">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
-      </div>
-      <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--navy);">3 especialidades em um só lugar</h3>
-      <p style="font-size:0.82rem;font-weight:300;line-height:1.8;color:var(--text-mid);">Reabilitação oral, ortodontia e endodontia — tudo no mesmo consultório. Você não precisa ir de clínica em clínica. Sua saúde bucal é cuidada de forma integrada por especialistas.</p>
-    </div>
-
-    <div style="background:var(--navy);border:1px solid transparent;padding:2rem 2rem 1.8rem;border-radius:2px;display:flex;flex-direction:column;gap:1rem;transition:box-shadow 0.3s,transform 0.3s;" onmouseenter="this.style.boxShadow='0 12px 40px rgba(8,48,69,0.25)';this.style.transform='translateY(-3px)'" onmouseleave="this.style.boxShadow='none';this.style.transform='translateY(0)'">
-      <div style="width:48px;height:48px;background:rgba(255,255,255,0.08);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--gold-light);">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      </div>
-      <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:400;color:var(--white);">Horários que cabem na sua vida</h3>
-      <p style="font-size:0.82rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.55);">Atendemos de segunda a sexta das 08h30 às 19h30 e aos sábados das 09h às 14h. Consultas de emergência aos domingos e feriados com hora marcada — porque o seu sorriso não pode esperar.</p>
-    </div>
-
   </div>
 </section>
 
 <!-- CONTATO -->
-<section class="contato" id="contato">
-  <div class="reveal">
-    <p class="section-label">Fale Conosco</p>
-    <h2 class="section-title">Agende sua <em>consulta</em></h2>
-    <p class="section-desc">Estamos prontos para te atender. Entre em contato e dê o primeiro passo para transformar o seu sorriso.</p>
-
-    <div class="contato-cta">
-      <a href="https://api.whatsapp.com/send?phone=5553984780026&text=Ol%C3%A1!%20Tudo%20bem%3F%20Gostaria%20de%20agendar%20uma%20consulta!" target="_blank" class="btn-whatsapp">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.525 5.845L0 24l6.32-1.497A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.814 9.814 0 01-5.007-1.374l-.36-.213-3.729.883.937-3.63-.234-.374A9.82 9.82 0 012.182 12C2.182 6.566 6.566 2.182 12 2.182S21.818 6.566 21.818 12 17.434 21.818 12 21.818z"/></svg>
-        Agendar pelo WhatsApp
-      </a>
-      <a href="tel:5353307685" class="btn-tel">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width:16px;height:16px"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.79 19.79 19.79 0 010 1.22 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        Ligar: (53) 3307-6857
-      </a>
-    </div>
-
-    <div style="margin-top: 2.5rem;">
-      <div class="info-block">
-        <div class="info-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <div>
-          <div class="info-label">Endereço</div>
-          <div class="info-value">Rua General Neto, 1035 — Sala 302<br>Centro, Pelotas — RS</div>
-        </div>
-      </div>
-      <div class="info-block">
-        <div class="info-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <div>
-          <div class="info-label">Horários</div>
-          <div class="info-value">Seg. a Sex.: 08h30 às 19h30<br>Sáb.: 09h00 às 14h00<br><span style="font-size:0.78rem;color:#888;">Emergências domingos e feriados</span></div>
-        </div>
-      </div>
-      <div class="info-block">
-        <div class="info-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <div>
-          <div class="info-label">E-mail</div>
-          <div class="info-value"><a href="mailto:consultorioarodontologia@gmail.com">consultorioarodontologia@gmail.com</a></div>
-        </div>
+<section class="block contact" id="contato" style="padding-top:0">
+  <div class="wrap">
+    <div>
+      <span class="kicker rv">Fale conosco</span>
+      <h2 class="rv d1" style="margin-top:16px">Vamos agendar <em>sua consulta?</em></h2>
+      <div class="clist">
+        <a class="citem rv wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta!" href="#"><div class="ic"><svg><use href="#i-wa"/></svg></div><div><small>WhatsApp</small><b>(53) 98478-0026</b></div></a>
+        <a class="citem rv d1" href="tel:+555333076857"><div class="ic"><svg><use href="#i-phone"/></svg></div><div><small>Telefone</small><b>(53) 3307-6857</b></div></a>
+        <a class="citem rv d2" href="mailto:consultorioarodontologia@gmail.com"><div class="ic"><svg><use href="#i-mail"/></svg></div><div><small>E-mail</small><b>consultorioarodontologia@gmail.com</b></div></a>
+        <a class="citem rv d3" href="https://www.google.com/maps/search/?api=1&query=Rua+General+Neto+1035+Pelotas+RS" target="_blank" rel="noopener"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><small>Endereço</small><b>Rua General Neto, 1035, Sala 302<br>Pelotas, RS · 96015-280</b></div></a>
       </div>
     </div>
-  </div>
-  <div class="reveal">
-    <div class="map-wrap">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3449.5263!2d-52.3424!3d-31.7654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9511a0a0a0a0a0a1%3A0xa0a0a0a0a0a0a0a0!2sRua%20General%20Neto%2C%201035%20-%20Centro%2C%20Pelotas%20-%20RS!5e0!3m2!1spt-BR!2sbr!4v1700000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="AR Odontologia no mapa"></iframe>
-    </div>
-    <div style="margin-top: 1.5rem; padding: 1.5rem; background: var(--cream); border-left: 3px solid var(--gold);">
-      <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; color: var(--navy); line-height: 1.7; font-style: italic;">"Transformamos sorrisos com cuidado, precisão e muito carinho. Cada paciente é único e cada tratamento é especial."</p>
-      <p style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-light); margin-top: 0.8rem;">— Equipe AR Odontologia</p>
+    <div class="map rv d1">
+      <iframe title="Mapa AR Odontologia" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua+General+Neto,+1035,+Pelotas+-+RS,+96015-280&z=16&output=embed"></iframe>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- CTA FINAL -->
+<section class="band">
+  <div class="wrap">
+    <span class="kicker rv">Agenda imediata</span>
+    <h2 class="rv d1">Seu novo sorriso começa com uma <em>conversa</em></h2>
+    <p class="lead rv d2">Ao clicar você será direcionado para o WhatsApp. Você também pode ligar: (53) 3307-6857.</p>
+    <div class="ctas rv d3">
+      <a class="btn btn-primary wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta!" href="#"><svg><use href="#i-wa"/></svg>Agendar consulta</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/ar.odontologia_/" target="_blank" rel="noopener"><svg><use href="#i-ig"/></svg>@ar.odontologia_</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
 <footer>
-  <div class="footer-logo">ar odontologia</div>
-  <div class="footer-copy">© 2024 AR Odontologia · Todos os direitos reservados</div>
-  <div class="footer-social">
-    <a href="https://www.facebook.com/arodontologiapel" target="_blank" aria-label="Facebook">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-    </a>
-    <a href="https://www.instagram.com/ar.odontologia_/" target="_blank" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-    </a>
+  <div class="wrap">
+    <div class="top">
+      <a href="#topo" class="logo" aria-label="AR Odontologia">
+        <img class="sym" src="img/simbolo-branco.png" alt="AR">
+        <img class="word" src="img/odontologia-branco.png" alt="odontologia">
+      </a>
+      <div class="social">
+        <a href="https://www.instagram.com/ar.odontologia_/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+        <a href="https://www.facebook.com/arodontologiapel" target="_blank" rel="noopener" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+        <a class="wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta!" href="#" aria-label="WhatsApp"><svg><use href="#i-wa"/></svg></a>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="ano">2026</span> AR Odontologia · Rua General Neto, 1035, Sala 302, Pelotas, RS</span>
+      <span>(53) 3307-6857 · consultorioarodontologia@gmail.com</span>
+    </div>
   </div>
 </footer>
 
+<a class="wa-float wa-link" id="waFloat" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta!" href="#" aria-label="Agendar pelo WhatsApp"><svg><use href="#i-wa"/></svg></a>
+
 <script>
-  // Header scroll
-  const header = document.getElementById('mainHeader');
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 50);
-  });
+// WhatsApp: mesmo número e mensagens do site atual
+const WA = '5553984780026';
+document.querySelectorAll('.wa-link').forEach(a => {
+  a.href = 'https://api.whatsapp.com/send?phone=' + WA + '&text=' + encodeURIComponent(a.dataset.msg || '');
+  a.target = '_blank'; a.rel = 'noopener';
+});
 
-  // Mobile menu
-  function openMobileMenu() { document.getElementById('mobileMenu').classList.add('open'); document.body.style.overflow = 'hidden'; }
-  function closeMobileMenu() { document.getElementById('mobileMenu').classList.remove('open'); document.body.style.overflow = ''; }
+// header + botão flutuante
+const nav = document.getElementById('nav'), wf = document.getElementById('waFloat');
+const onScroll = () => { const y = scrollY; nav.classList.toggle('scrolled', y > 10); wf.classList.toggle('show', y > 500); };
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
 
-  // Reveal on scroll
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => { entry.target.classList.add('visible'); }, i * 100);
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+// menu mobile
+const burger = document.getElementById('burger'), menu = document.getElementById('menu');
+burger.addEventListener('click', () => { const o = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', o); });
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
 
-  reveals.forEach(el => observer.observe(el));
+// reveal
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// digitação (frases do site atual)
+const frases = ['em sorrisos','em pessoas','em tratamento de canal','em clareamento dentário','em implantes dentários','em aparelhos ortodônticos','em lentes de contato dentais'];
+const el = document.getElementById('type');
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  let fi = 0, ci = frases[0].length, apagando = true;
+  const tick = () => {
+    const f = frases[fi];
+    if (apagando) {
+      ci--; el.textContent = f.slice(0, ci) || ' ';
+      if (ci <= 3) { apagando = false; fi = (fi + 1) % frases.length; ci = 3; }
+      setTimeout(tick, 40);
+    } else {
+      const g = frases[fi]; ci++; el.textContent = g.slice(0, ci);
+      if (ci >= g.length) { apagando = true; setTimeout(tick, 2200); } else setTimeout(tick, 75);
+    }
+  };
+  setTimeout(tick, 2600);
+}
+document.getElementById('ano').textContent = new Date().getFullYear();
 </script>
-
 </body>
 </html>
