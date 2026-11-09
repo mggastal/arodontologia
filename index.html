@@ -169,6 +169,26 @@ section.block{padding:120px 0}
 .tags span{font-size:.78rem;font-weight:500;color:var(--navy);background:var(--cream);border:1px solid var(--line);padding:6px 13px;border-radius:999px}
 .dcard small{display:block;margin-top:12px;font-size:.8rem;color:var(--muted)}
 
+/* reviews */
+.reviews{padding-top:0;background:#fff}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.rsum{background:var(--navy);color:#cfdde5;border-radius:var(--radius);padding:38px 34px;display:flex;flex-direction:column;align-items:flex-start}
+.rsum .kicker{color:#a9c2cf}
+.rsum .score{font-family:var(--serif);font-weight:300;font-size:5.2rem;line-height:1;color:#fff;margin:18px 0 10px}
+.rsum p{margin:14px 0 26px;font-size:.95rem}
+.rsum .btn{padding:13px 22px;font-size:.88rem;margin-top:auto}
+.rsum .stars{color:#f5c04a}
+.stars{display:flex;gap:3px;color:#e3a92b}
+.stars .st{width:18px;height:18px}
+.rcard{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;display:flex;flex-direction:column;gap:18px;transition:transform .35s, box-shadow .35s}
+.rcard:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.rcard blockquote{font-family:var(--serif);font-weight:300;font-size:1.22rem;line-height:1.45;color:var(--ink);flex:1}
+.rcard figcaption{display:flex;align-items:center;gap:12px;font-size:.88rem}
+.rcard figcaption b{display:block;color:var(--ink);font-weight:600}
+.rcard figcaption small{color:var(--muted);font-size:.76rem}
+.av{width:40px;height:40px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:600;flex:none}
+.badge .ic.gstar{color:#e3a92b}
+
 /* clinic */
 .clinic{padding:0}
 .clinic .inner{display:grid;grid-template-columns:1fr 1fr;background:var(--navy);border-radius:32px;overflow:hidden;color:#d4e1e8}
@@ -212,6 +232,7 @@ footer .logo .word{height:18px}
 .social a:hover{background:#fff;color:var(--ink)}
 .social svg{width:19px;height:19px}
 footer .bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding-top:26px}
+footer .credit{display:flex;justify-content:center;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08)}
 footer .dev{display:inline-flex;align-items:center;gap:10px;font-family:'Montserrat',sans-serif;font-size:.78rem;letter-spacing:.04em;color:#8d9aa3;opacity:.85;transition:opacity .3s}
 footer .dev:hover{opacity:1;color:#fff}
 footer .dev img{height:auto;width:120px}
@@ -251,6 +272,7 @@ footer .dev img{height:auto;width:120px}
   .feat:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12)}
   .grid-t{grid-template-columns:repeat(2,1fr)}
   .clinic .inner{grid-template-columns:1fr}
+  .rgrid{grid-template-columns:repeat(2,1fr)}
   .clinic .pic{min-height:340px}
   .contact .wrap{grid-template-columns:1fr}
 }
@@ -277,6 +299,7 @@ footer .dev img{height:auto;width:120px}
   .feat{padding:22px 6px}
   .feat + .feat{border-left:0;border-top:1px solid rgba(255,255,255,.12)}
   .grid-t{grid-template-columns:1fr}
+  .rgrid{grid-template-columns:1fr}
   .clinic .inner{border-radius:24px}
   .clinic .txt{padding:44px 26px}
   .hours div{flex-direction:column;gap:2px}
@@ -321,6 +344,7 @@ footer .dev img{height:auto;width:120px}
     <nav class="menu" id="menu">
       <a href="#tratamentos">Tratamentos</a>
       <a href="#dentistas">Dentistas</a>
+      <a href="#avaliacoes">Avaliações</a>
       <a href="#consultorio">Consultório</a>
       <a href="#contato">Contato</a>
       <a class="btn btn-primary wa-link" data-msg="Olá! Tudo bem? Gostaria de agendar uma consulta!" href="#"><svg><use href="#i-wa"/></svg>Agendar consulta</a>
@@ -347,7 +371,7 @@ footer .dev img{height:auto;width:120px}
     <div class="hero-visual">
       <div class="arch"></div>
       <img src="img/equipe.webp" alt="Dra. Andressa Rickes, Dra. Ana Laura Plá e Dra. Rafaella da Gama, dentistas da AR Odontologia" width="1200" height="984" fetchpriority="high">
-      <div class="badge b1"><div class="ic"><svg><use href="#i-cal"/></svg></div><div><b>Agenda imediata</b><span>Horários flexíveis</span></div></div>
+      <a class="badge b1" href="#avaliacoes"><div class="ic gstar"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div><div><b>5,0 no Google</b><span>+50 avaliações</span></div></a>
       <div class="badge b2"><div class="ic"><svg><use href="#i-pin"/></svg></div><div><b>Centro de Pelotas</b><span>R. Gen. Neto, 1035</span></div></div>
     </div>
   </div>
@@ -430,6 +454,27 @@ footer .dev img{height:auto;width:120px}
   </div>
 </section>
 
+
+<!-- AVALIAÇÕES -->
+<section class="block reviews" id="avaliacoes">
+  <div class="wrap">
+    <div class="rgrid">
+      <div class="rsum rv">
+        <span class="kicker">Avaliações</span>
+        <div class="score">5,0</div>
+        <div class="stars"><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div>
+        <p>Nota máxima no Google, com mais de 50 avaliações de pacientes.</p>
+        <a class="btn btn-light" href="https://www.google.com/maps/place/AR+odontologia/@-31.7671451,-52.3414066,17z/data=!4m8!3m7!1s0x9511b582fe66a7db:0xe600c01a5e92e22d!8m2!3d-31.7671451!4d-52.3414066!9m1!1b1" target="_blank" rel="noopener"><svg class="g" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.6 12.3c0-.8-.1-1.5-.2-2.3H12v4.3h5.9a5 5 0 0 1-2.2 3.3v2.7h3.6c2.1-1.9 3.3-4.8 3.3-8z"/><path fill="#34A853" d="M12 23c3 0 5.5-1 7.3-2.7l-3.6-2.7c-1 .7-2.2 1.1-3.7 1.1-2.9 0-5.3-1.9-6.2-4.5H2.1v2.8A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.8 14.2a6.6 6.6 0 0 1 0-4.3V7.1H2.1a11 11 0 0 0 0 9.9z"/><path fill="#EA4335" d="M12 5.4c1.6 0 3 .6 4.2 1.6l3.1-3.1A11 11 0 0 0 2.1 7.1l3.7 2.8C6.7 7.3 9.1 5.4 12 5.4z"/></svg>Ver no Google</a>
+      </div>
+      <figure class="rcard rv d1"><div class="stars"><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div><blockquote>“Excelente atendimento, ambiente agradável, bem higienizado e profissionais altamente qualificados.”</blockquote><figcaption><span class="av">V</span><span><b>Victória C.</b><small>Avaliação no Google</small></span></figcaption></figure>
+      <figure class="rcard rv d2"><div class="stars"><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div><blockquote>“Fui muito bem recepcionada pela Rafaella, que resolveu o meu problema com muita eficiência.”</blockquote><figcaption><span class="av">L</span><span><b>Lezi G.</b><small>Avaliação no Google</small></span></figcaption></figure>
+      <figure class="rcard rv"><div class="stars"><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div><blockquote>“Atendimento com horário preciso, sem atrasos, e com muita atenção ao paciente.”</blockquote><figcaption><span class="av">R</span><span><b>Renato A.</b><small>Avaliação no Google</small></span></figcaption></figure>
+      <figure class="rcard rv d1"><div class="stars"><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div><blockquote>“Amei tudo, desde a avaliação até o atendimento final. Ambiente limpo, organizado e aconchegante.”</blockquote><figcaption><span class="av">C</span><span><b>Claudia R.</b><small>Avaliação no Google</small></span></figcaption></figure>
+      <figure class="rcard rv d2"><div class="stars"><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg><svg class="st" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6L2.5 9.4l6.6-.8z"/></svg></div><blockquote>“Ambiente ótimo, excelente atendimento, ótimas profissionais. Recomendo!”</blockquote><figcaption><span class="av">P</span><span><b>Pedro B.</b><small>Avaliação no Google</small></span></figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- CONSULTÓRIO -->
 <section class="block clinic-wrap" id="consultorio">
   <div class="wrap clinic">
@@ -499,6 +544,9 @@ footer .dev img{height:auto;width:120px}
     </div>
     <div class="bottom">
       <span>© <span id="ano">2026</span> AR Odontologia · Rua General Neto, 1035, Sala 302, Pelotas, RS</span>
+      <span>(53) 3307-6857 · consultorioarodontologia@gmail.com</span>
+    </div>
+    <div class="credit">
       <a class="dev" href="https://www.grigolettimidias.com.br/?utm_source=arodontologia&amp;utm_medium=site&amp;utm_campaign=arodontologia" target="_blank" rel="noopener">Desenvolvido por <img src="img/grigoletti-midias.png" alt="Grigoletti Mídias" width="120" loading="lazy"></a>
     </div>
   </div>
